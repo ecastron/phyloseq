@@ -1,0 +1,32 @@
+\name{intersect_taxa}
+\alias{intersect_taxa}
+\title{Returns the intersection of species and samples for the components of x}
+\usage{
+  intersect_taxa(x)
+}
+\arguments{
+  \item{x}{(Required). A \code{\link{phyloseq-class}}
+  object that contains 2 or more components that in-turn
+  describe species/taxa.}
+}
+\value{
+  Returns a character vector of only those species that are
+  present in all species-describing components of \code{x}.
+}
+\description{
+  This function is used internally as part of the
+  infrastructure to ensure that component data types in a
+  phyloseq-object have exactly the same taxa/species. It
+  relies heavily on the \code{\link{Reduce}} function to
+  determine the strictly common species.
+}
+\examples{
+#
+## data(GlobalPatterns)
+## head(intersect_taxa(GlobalPatterns), 10)
+}
+\seealso{
+  \code{\link{Reduce}}, \code{\link{intersect}}
+}
+\keyword{internal}
+
