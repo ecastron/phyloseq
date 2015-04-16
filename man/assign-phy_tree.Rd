@@ -1,0 +1,30 @@
+\docType{methods}
+\name{phy_tree<-}
+\alias{assign-phy_tree}
+\alias{phy_tree<-}
+\alias{phy_tree<-,phyloseq,phylo-method}
+\alias{phy_tree<-,phyloseq,phyloseq-method}
+\title{Assign a (new) phylogenetic tree to \code{x}}
+\usage{
+  phy_tree(x) <- value
+}
+\arguments{
+  \item{x}{(Required). \code{\link{phyloseq-class}}}
+
+  \item{value}{(Required). \code{\link{phylo-class}}, or
+  \code{\link{phyloseq-class}}}
+}
+\description{
+  Assign a (new) phylogenetic tree to \code{x}
+}
+\examples{
+#
+data("esophagus")
+# An example of pruning to just the first 20 taxa in esophagus
+ex2a <- prune_taxa(taxa_names(esophagus)[1:20], esophagus)
+# The following 3 lines produces an ex2b that is equal to ex2a
+ex2b <- ex2a
+phy_tree(ex2b) <- phy_tree(esophagus)
+identical(ex2a, ex2b)
+}
+

@@ -1,0 +1,75 @@
+\docType{methods}
+\name{merge_phyloseq_pair}
+\alias{merge_phyloseq_pair}
+\alias{merge_phyloseq_pair,otu_table,otu_table-method}
+\alias{merge_phyloseq_pair,phylo,phylo-method}
+\alias{merge_phyloseq_pair,sample_data,sample_data-method}
+\alias{merge_phyloseq_pair,taxonomyTable,taxonomyTable-method}
+\alias{merge_phyloseq_pair,XStringSet,XStringSet-method}
+\title{Merge pair of phyloseq component data objects of the same class.}
+\usage{
+  merge_phyloseq_pair(x, y)
+}
+\arguments{
+  \item{x}{A character vector of the species in object x
+  that you want to keep -- OR alternatively -- a logical
+  vector where the kept species are TRUE, and length is
+  equal to the number of species in object x. If
+  \code{species} is a named logical, the species retained
+  is based on those names. Make sure they are compatible
+  with the \code{taxa_names} of the object you are
+  modifying (\code{x}).}
+
+  \item{y}{Any \code{phyloseq} object.}
+}
+\value{
+  A single component data object that matches \code{x} and
+  \code{y} arguments. The returned object will contain the
+  union of the species and/or samples of each. If there is
+  redundant information between a pair of arguments of the
+  same class, the values in \code{x} are used by default.
+  Abundance values are summed for \code{otu_table} objects
+  for those elements that describe the same species and
+  sample in \code{x} and \code{y}.
+}
+\description{
+  Internal S4 methods to combine pairs of objects of
+  classes specified in the phyloseq package. These objects
+  must be component data of the same type (class). This is
+  mainly an internal method, provided to illustrate how
+  merging is performed by the more general
+  \code{\link{merge_phyloseq}} function.
+}
+\details{
+  The \code{\link{merge_phyloseq}} function is recommended
+  in general.
+
+  Special note: non-identical trees are merged using
+  \code{\link[ape]{consensus}}.
+}
+\examples{
+#
+## # merge two simulated otu_table objects.
+## x  <- otu_table(matrix(sample(0:5,200,TRUE),20,10), taxa_are_rows=TRUE)
+## y  <- otu_table(matrix(sample(0:5,300,TRUE),30,10), taxa_are_rows=FALSE)
+## xy <- merge_phyloseq_pair(x, y)
+## yx <- merge_phyloseq_pair(y, x)
+## # merge two simulated tax_table objects
+## x <- tax_table(matrix("abc", 20, 6))
+## y <- tax_table(matrix("def", 30, 8))
+## xy <- merge_phyloseq_pair(x, y)
+## # merge two simulated sample_data objects
+## x <- data.frame( matrix(sample(0:3,250,TRUE),25,10),
+##   matrix(sample(c("a","b","c"),150,TRUE),25,6) )
+## x <- sample_data(x)
+## y <- data.frame( matrix(sample(4:6,200,TRUE),20,10),
+##   matrix(sample(c("d","e","f"),120,TRUE),20,8) )
+## y <- sample_data(y)
+## merge_phyloseq_pair(x, y)
+## data.frame(merge_phyloseq_pair(x, y))
+## data.frame(merge_phyloseq_pair(y, x))
+}
+\seealso{
+  \code{\link{merge_phyloseq}} \code{\link{merge_taxa}}
+}
+
