@@ -1,0 +1,26 @@
+<link href="http://joey711.github.com/phyloseq/markdown.css" rel="stylesheet"></link>
+
+# [phyloseq](http://joey711.github.com/phyloseq/)
+
+[![Travis-CI Build Status](https://travis-ci.org/joey711/phyloseq.svg?branch=master)](https://travis-ci.org/joey711/phyloseq)
+
+## Article on Improved Microbiome Analysis
+
+McMurdie and Holmes (2014)
+[Waste Not, Want Not: Why Rarefying Microbiome Data is Statistically Inadmissible](http://dx.plos.org/10.1371/journal.pcbi.1003531)
+PLoS Computational Biology 10(4): e1003531
+
+Presubmission versions ahead of acceptance (2013):
+[PDF version 2](http://arxiv.org/pdf/1310.0424v2.pdf),
+[PDF version 1](http://arxiv.org/pdf/1310.0424v1.pdf)
+
+
+## Latest peer-reviewed article about phyloseq
+
+[phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data](http://dx.plos.org/10.1371/journal.pone.0061217) (2013) PLoS ONE 8(4):e61217
+
+## Other resources
+
+The phyloseq project also has a number of supporting online resources, most of which can by found at [the phyloseq home page](http://joey711.github.com/phyloseq/), or from the phyloseq stable release [page on Bioconductor](http://bioconductor.org/packages/release/bioc/html/phyloseq.html).
+
+To post feature requests or ask for help, try [the phyloseq Issue Tracker](https://github.com/joey711/phyloseq/issues).
